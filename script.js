@@ -213,6 +213,35 @@ const handleResize = () => {
 window.addEventListener('resize', handleResize);
 
 // ==========================================
+// Theme Selection
+// ==========================================
+
+const themeSelect = document.getElementById('themeSelect');
+const savedTheme = localStorage.getItem('theme');
+const defaultTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+const setTheme = (theme) => {
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+
+    localStorage.setItem('theme', theme);
+    if (themeSelect) {
+        themeSelect.value = theme;
+    }
+};
+
+if (themeSelect) {
+    themeSelect.addEventListener('change', () => {
+        setTheme(themeSelect.value);
+    });
+}
+
+setTheme(defaultTheme);
+
+// ==========================================
 // Loading Animation
 // ==========================================
 

@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: /sitemap.xml
+
+# Crawl Delay (in seconds)
+Crawl-delay: 1
+
+# Request Rate (pages per second)
+Request-rate: 10/1s
+
+# Specific rules for common crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
